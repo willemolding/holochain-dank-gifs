@@ -1,0 +1,60 @@
+{
+    "Version": 1,
+    "UUID": "af4d084e-87ac-11e8-af85-685b35836414",
+    "Name": "holochain-gif",
+    "Properties": {
+        "description": "provides an application template",
+        "language": "en"
+    },
+    "PropertiesSchemaFile": "properties_schema.json",
+    "BasedOn": "",
+    "RequiresVersion": 26,
+    "DHTConfig": {
+        "HashType": "sha2-256",
+        "RedundancyFactor": 0
+    },
+    "Progenitor": {
+        "Identity": "",
+        "PubKey": null
+    },
+    "Zomes": [
+        {
+            "Name": "gif",
+            "Description": "provide a sample zome",
+            "CodeFile": "gif.js",
+            "RibosomeType": "js",
+            "BridgeFuncs": null,
+            "Config": null,
+            "Entries": [
+                {
+                    "Name": "gif",
+                    "DataFormat": "json",
+                    "SchemaFile": "gif.json",
+                    "Sharing": "public"
+                },
+                {
+                  "Name" : "tag",
+                  "DataFormat" : "string",
+                  "Sharing" : "public"
+                },
+                {
+                  "Name" : "tagLink",
+                  "DataFormat" : "links",
+                  "Sharing" : "public"
+                }
+            ],
+            "Functions": [
+                {
+                    "Name": "gitPost",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "gifFind",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                }             
+            ]
+        }
+    ]
+}

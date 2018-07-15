@@ -1,0 +1,8 @@
+{
+	"title": "gif Schema",
+	"type": "object",
+	"properties": {
+    "link" : {"type" : "string"},
+    "tags" : {"type" : "array"}
+	}
+}

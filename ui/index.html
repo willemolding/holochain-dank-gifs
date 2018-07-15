@@ -1,0 +1,61 @@
+<html>
+
+<head>
+  <script type="text/javascript">
+    function onAddGif(gifLink, tagString) {
+      
+      tags = tagString.split(',');
+  
+      var xhr = new XMLHttpRequest();
+        xhr.open("POST", '/fn/gif/gifPut', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            links: gitLink,
+            tags: tags
+        }));
+    }
+
+    function onSearch(searchTags) {
+      tags = searchTags.split(',');
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", '/fn/gif/gifFind', true);
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.onload = function() {
+        var jsonResponse = xhr.response;
+        // populate the GIF fields with the list of gifs that was returned!!
+        
+      }
+      xhr.send(JSON.stringify({
+          tags: tags
+      }));
+      
+    }
+  </script>
+</head>
+
+<input type=text value="" placeholder="paste" size=100% ></input>
+<input type=text value="gif, meme, visual, holochain" size=100%></input>
+<img src=http://i.imgur.com/eLwgnTk.gif width=100%>
+<a href=http://i.imgur.com/eLwgnTk.gif>http://i.imgur.com/eLwgnTk.gif</a>
+ 
+<a href=https://i.imgur.com/z8O4OQO.gif border=0><img src=https://i.imgur.com/z8O4OQO.gif width=100%>
+<a href=https://i.imgur.com/z8O4OQO.gif>https://i.imgur.com/z8O4OQO.gif</a>
+ 
+<img src=https://i.imgur.com/0uVrYYA.gif width=100%>
+<a href=https://i.imgur.com/0uVrYYA.gif>https://i.imgur.com/0uVrYYA.gif</a>
+ 
+<img src=https://i.imgur.com/AC1fmsa.gif width=100%>
+<a href=https://i.imgur.com/AC1fmsa.gif>https://i.imgur.com/AC1fmsa.gif</a>
+ 
+<img src=https://i.imgur.com/IVk3I3N.gif width=100%>
+<a href=https://i.imgur.com/IVk3I3N.gif>https://i.imgur.com/IVk3I3N.gif</a>
+ 
+ 
+<img src=https://i.imgur.com/OBCVeRI.gif width=100%>
+<a href=https://i.imgur.com/OBCVeRI.gif>https://i.imgur.com/OBCVeRI.gif</a>
+ 
+<img src=https://i.imgur.com/0qEYYMe.gif width=100%>
+<a href=https://i.imgur.com/0qEYYMe.gif>https://i.imgur.com/0qEYYMe.gif</a>
+ 
+</html>
