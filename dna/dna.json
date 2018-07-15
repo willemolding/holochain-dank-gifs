@@ -45,7 +45,7 @@
             ],
             "Functions": [
                 {
-                    "Name": "gitPost",
+                    "Name": "gifPut",
                     "CallingType": "json",
                     "Exposure": "public"
                 },

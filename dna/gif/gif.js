@@ -5,21 +5,31 @@
 
 function gifPut(payload) {
   var gifHash = commit('gif',payload);
+  var tagHash = '';
   payload.tags.forEach(function(tag) {
-    var tagHash = commit('tag', tag);
+    tagHash = commit('tag', tag);
+    debug(tag + " committed")
     commit('tagLink', {
       Links: [ { Base: tagHash, Link: gifHash, Tag: '' } ]
     });
   });
-  return hash;
+  return tagHash;
 }
 
 function gifFind(payload) {
   var results = [];
   payload.tags.forEach(function(tag) {
-    getLinks(makeHash('tag', tag), '').forEach(function(gif) {
-      results.push(gif);
-    })
+    var hash;
+    try {
+      hash = makeHash('tag', tag)
+      getLinks(hash, '', { Load: true}).forEach(function(gif) {
+        results.push(gif);
+      })
+    } catch(e) {
+      debug("searching for a tag that does not exist: " + tag)
+      debug(e);
+    }
+
   });
   return results;
 }
@@ -28,7 +38,7 @@ function gifFind(payload) {
 
 
 
-// Cast you first Vote and save it localy
+// Cast you first Vote and save it locally
 
 function genesis() {
   return true;
